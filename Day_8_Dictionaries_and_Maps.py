@@ -8,7 +8,7 @@ annuaire = {}
 for _ in range(n):
     nom, numero = input().split()
     annuaire[nom] = numero
-
+# Add a while loop
 while True:
     try:
         recherche = input().strip()
@@ -18,3 +18,4 @@ while True:
             print("Not found")
     except EOFError:
         break
+
