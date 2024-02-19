@@ -1,8 +1,8 @@
 
 const suppDoublon = (word) => {
-    console.log(word)
+    // console.log(word)
     var mots = word.split('');
-    console.log(mots)
+    // console.log(mots)
 
     var obj = {};
     var rep = "";
@@ -14,10 +14,10 @@ const suppDoublon = (word) => {
         else{
             obj[mots[index]] = 1
         }
-        console.log(obj);
+        // console.log(obj);
     }
 
-    console.log(Object.keys(obj))
+    // console.log(Object.keys(obj))
     
     for (const key in obj) {
        if(obj[key] === 1){
