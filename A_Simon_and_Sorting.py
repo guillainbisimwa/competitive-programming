@@ -1,24 +1,26 @@
-# Function to check if Simon can make the string abc with at most one swap
-def simon_and_sorting(s):
-    # Check if the string is already "abc" or "cba"
-    if s == "abc" or s == "cba":
-        return "YES"
-    
-    # Find the positions of a, b, and c in the string
-    a_index = s.find('a')
-    b_index = s.find('b')
-    c_index = s.find('c')
-    
-    # Check if one swap is enough to make the string abc or cba
-    if (a_index < b_index < c_index) or (c_index < b_index < a_index):
-        return "YES"
-    
-    # Otherwise, return "NO"
-    return "NO"
+def find_minimum_swaps(test):
+    swapped = False
+    for i in range(len(test)):
+        min_idx = i
+        for j in range(i+1, len(test)):
+            if test[j] < test[min_idx]:
+                min_idx = j
+                swapped = True
+        if swapped:
+            test[i], test[min_idx] = test[min_idx], test[i]
+            break
+    return test
 
-# List of strings to test
-strings = ["abc", "acb", "bac", "bca", "cab", "cba"]
+def check_order(test):
+    if test[0] < test[1] and test[1] < test[2]:
+        return "YES"
+    else:
+        return "NO"
 
-# Test each string
-for s in strings:
-    print(s, "->", simon_and_sorting(s))
+for _ in range(int(input())):
+    test = input()
+    test = [char for char in test]
+    
+    test = find_minimum_swaps(test)
+    print(check_order(test))
+
