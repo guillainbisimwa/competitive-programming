@@ -11,9 +11,10 @@ def sort_array(n, arr):
         # If the minimum element is not at its correct position, swap it with the current element
         if min_index != i:
             arr[i], arr[min_index] = arr[min_index], arr[i]
+            
             swaps.append((i, min_index))  # Add the swap to the list of swaps
     
-    return swaps
+    return sorted(swaps)  # Sort the list of swaps based on the first element of each tuple
 
 # Read input values
 n = int(input())
@@ -26,3 +27,4 @@ swaps = sort_array(n, arr)
 print(len(swaps))
 for swap in swaps:
     print(swap[0], swap[1])
+
