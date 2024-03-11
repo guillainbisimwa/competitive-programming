@@ -1,32 +1,40 @@
-def print_pattern(t):
-    for _ in range(t):
-        n = int(input())
+# def min_operations(grid):
+#     """
+#     Calculates the minimum number of operations to make the grid rotationally symmetric.
 
-        matriz = [[0 for _ in range(n)] for _ in range(n)]
+#     Args:
+#         grid: A list of lists representing the grid (n x n matrix).
 
-        l, r = 1, n * n
+#     Returns:
+#         The minimum number of operations required.
+#     """
+#     n = len(grid)
 
-        flag = 1
-        for i in range(n):
-            for j in range(n):
-                if flag:
-                    matriz[i][j] = l
-                    l += 1
-                else:
-                    matriz[i][j] = r
-                    r -= 1
-                flag ^= 1
+#     # Check differences between corresponding cells in the grid and its transpose
+#     operations = 0
+#     for i in range(n):
+#         for j in range(i, n):
+#             if grid[i][j] != grid[j][i]:
+#                 operations += 1
 
-            if i % 2 == 1:
-                matriz[i].reverse()
+#     # Check differences between top-left and bottom-right diagonals
+#     for i in range(n):
+#         if grid[i][i] != grid[n - 1 - i][n - 1 - i]:
+#             operations += 1
 
-        for i in range(n):
-            for j in range(n):
-                print(matriz[i][j], end=" " if j != n - 1 else "\n")
+#     return operations
 
+# def main():
+#     """
+#     Reads input, calculates minimum operations for each test case, and prints results.
+#     """
+#     t = int(input())
+#     for _ in range(t):
+#         n = int(input())
+#         grid = [input() for _ in range(n)]
+#         grid = [list(map(int, row)) for row in grid]  # Convert string input to integers
+#         min_ops = min_operations(grid)
+#         print(min_ops)
 
-# Read input value for the number of test cases
-t = int(input())
-
-# Call the print_pattern function with the input value
-print_pattern(t)
+# if __name__ == "__main__":
+#     main()
