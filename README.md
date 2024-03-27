@@ -1,6 +1,6 @@
 # competitive-programming
 
-## Africa to Silicon Valley
+## Africa to Silicon Valley (A2SV)
 
 A2SV helps smart students from universities get better at technology and find good jobs at top companies worldwide. They also make apps to solve big problems in their own countries. It's free for students who can't afford it but are really good at what they do. 
 
