@@ -1,5 +1,5 @@
-class Solution(object):
-    def fizzBuzz(self, n):
+class Solution:
+    def fizzBuzz(self, n: int) -> List[str]:
         """
         :type n: int
         :rtype: List[str]
@@ -15,4 +15,3 @@ class Solution(object):
             else:
                 ans.append(str(i))
         return ans
-        
