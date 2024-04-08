@@ -30,7 +30,7 @@ def max_alternating_sum():
         ans += v1
     else:
         ans += v2
-    print(int(ans))  # Convert ans to an integer before printing
+    print(int(ans))
 
 
 if __name__ == "__main__":
