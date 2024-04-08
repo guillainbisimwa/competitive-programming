@@ -1,30 +1,39 @@
-# def max_alternating_sum(arr, n):
-#     max_sum = 0
-#     # sign = "+" if arr[0] > 0 else "-"  
-#     for i in range(n):  # Use n in the loop
-#         if sign == "+" and arr[i] > 0:
-#             j = i
-#             current_max = 0
-#             while j < n and arr[j] > 0:
-#                 current_max = max(current_max, arr[j])
-#                 j += 1
-#             max_sum += current_max
-#             sign = "-"
-#             i = j - 1 
+def max_alternating_sum():
+    n = int(input())
+    ans = 0
+    now = -1
+    v1 = -1e9
+    v2 = 0
+    a = list(map(int, input().split()))
+    for i in range(n):
+        if now == -1:
+            if a[i] > 0:
+                now = 1
+                v2 = max(v2, a[i])
+            else:
+                now = 0
+                v1 = max(v1, a[i])
+        else:
+            if a[i] > 0:
+                if now == 0:
+                    ans += v1
+                    v1 = -1e9
+                v2 = max(v2, a[i])
+                now = 1
+            else:
+                if now == 1:
+                    ans += v2
+                    v2 = 0
+                v1 = max(v1, a[i])
+                now = 0
+    if now == 0:
+        ans += v1
+    else:
+        ans += v2
+    print(int(ans))  # Convert ans to an integer before printing
 
-#         elif sign == "-" and arr[i] < 0:
-#             j = i
-#             current_max = float('-inf')
-#             while j < n and arr[j] < 0:
-#                 current_max = max(current_max, arr[j])
-#                 j += 1
-#             max_sum += current_max
-#             sign = "+"
-#             i = j - 1
 
-#     return max_sum
-
-# n = int(input())
-# arr = list(map(int, input().split()))
-# result = max_alternating_sum(arr, n)
-# print(result)
+if __name__ == "__main__":
+    T = int(input())
+    for _ in range(T):
+        max_alternating_sum()
