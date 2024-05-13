@@ -1,12 +1,11 @@
-def sort(a, arr):
-    if a == 1:
-       return arr
-    arr = sort(a -1, arr)
-    arr[a-1], arr[a-2] =  arr[a-2], arr[a-1]
-    return arr
-
-    # n = len(arr)
-    # for i in range(n - 1):
-    #     for j in range(n - 1):
-    #         if arr[j] > arr[j + 1]:
-    #             arr[j], arr[j + 1] = arr[j + 1], arr[j]
+t = int(input())
+for _ in range(t):
+    k, q = map(int, input().split())
+    arr = list(map(int, input().split()))
+    queries = list(map(int, input().split()))
+    for a in queries:
+        if a < arr[0]:
+            print(a, end=" ")
+        else:
+            print(arr[0] - 1, end=" ")
+    print()
