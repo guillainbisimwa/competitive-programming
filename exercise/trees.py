@@ -85,6 +85,20 @@ class BST:
                 if node.left:
                     stack.append(node.left)
             return ans
+        
+
+    def printInorder(self, node, foundValues):
+
+        if node:
+            if node.left:
+                foundValues = self.printInorder(node.left, foundValues)
+            
+            foundValues += (str(node.data)+" - ")
+
+            if node.right:
+                foundValues = self.printInorder(node.right, foundValues)
+            return foundValues
+        
 
 
 
@@ -109,6 +123,9 @@ tree.insertElement(tree.root, 7, "R")
 print(tree.search(tree.root, 4))
 print(tree.printPreorder(tree.root, ""))
 print(*tree.printPreorderNonRecursion())
+
+print(tree.printInorder(tree.root, ""))
+
 
 # print(tree.root.left.data) # 2
 # print(tree.root.left.left.data) # 4
