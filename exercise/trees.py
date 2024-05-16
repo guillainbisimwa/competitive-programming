@@ -60,6 +60,35 @@ class BST:
             if node.right:
                 foundValues = self.printPreorder(node.right, foundValues)
             return foundValues
+        
+
+    def printPreorderNonRecursion(self):
+        """
+        Approch:
+        use a stack [LIFO]
+        start with the node in stack
+        
+        """
+        stack = []
+        ans = []
+        if not self.root:
+            return
+        else: 
+            stack.append(self.root)
+            while stack:
+                node = stack.pop()
+                ans.append(str(node.data)+" -")
+                # put L and then R in the stack
+               
+                if node.right:
+                    stack.append(node.right)
+                if node.left:
+                    stack.append(node.left)
+            return ans
+
+
+
+        
 
 tree = BST(1)
 
@@ -79,6 +108,7 @@ tree.insertElement(tree.root, 7, "R")
 
 print(tree.search(tree.root, 4))
 print(tree.printPreorder(tree.root, ""))
+print(*tree.printPreorderNonRecursion())
 
 # print(tree.root.left.data) # 2
 # print(tree.root.left.left.data) # 4
