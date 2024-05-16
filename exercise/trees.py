@@ -36,6 +36,15 @@ class BST:
         else:
             return False
 
+    def print(self, node, foundValues):
+
+        if node:
+            foundValues += (str(node.data)+" - ")
+            if node.left:
+                foundValues = self.print(node.left, foundValues)
+            if node.right:
+                foundValues = self.print(node.right, foundValues)
+            return foundValues
 
 tree = BST(5)
 
@@ -43,9 +52,12 @@ tree = BST(5)
 
 tree.insertElement(tree.root, 9)
 tree.insertElement(tree.root, 4)
+tree.insertElement(tree.root, 2)
 
 
 print(tree.root.right.data) # 9
 print(tree.root.left.data) # 4
 
 print(tree.search(tree.root, 4))
+print(tree.print(tree.root, ""))
+
