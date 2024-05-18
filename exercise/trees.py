@@ -119,11 +119,21 @@ class BST:
                 node = node.right
 
         return ans
+    
+    def printPostorder(self, node, foundValues):
 
+        if node:
+            if node.left:
+                foundValues = self.printPreorder(node.left, foundValues)
+            if node.right:
+                foundValues = self.printPreorder(node.right, foundValues)
+
+            foundValues += (str(node.data)+" - ")
+            
+            return foundValues
         
 
-
-
+        
         
 
 tree = BST(1)
@@ -148,6 +158,9 @@ print(*tree.printPreorderNonRecursion())
 
 print(tree.printInorder(tree.root, ""))
 print(*tree.printInorderNonRecursion())
+
+print(tree.printPostorder(tree.root, ""))
+
 
 
 
