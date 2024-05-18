@@ -131,7 +131,52 @@ class BST:
             foundValues += (str(node.data)+" - ")
             
             return foundValues
+
+
+    def deleteNode(self, root: Node, key: int) -> Node:
+        if not root:
+            return root
+
+        if root.data == key:
+            if root.left and root.right:
+                # Find the minimum node in the right subtree
+                [psucc, succ] = self.findMin(root.right, root)
+                
+                # Splice out the successor
+                if psucc.left == succ:
+                    psucc.left = succ.right
+                else:
+                    psucc.right = succ.right
+                
+                # Reset the left and right children of the successor
+                succ.left = root.left
+                succ.right = root.right
+                return succ
+            else:
+                # Easier cases when the node to be deleted has only one child or no children
+                if root.left:
+                    return root.left
+                else:
+                    return root.right
+        else:
+            if root.data > key:
+                if root.left:
+                    root.left = self.deleteNode(root.left, key)
+            else:
+                if root.right:
+                    root.right = self.deleteNode(root.right, key)
         
+        return root
+
+    def findMin(self, root, parent):
+        """ Return the minimum node in the current tree and its parent """
+        # We use an ugly trick: the parent node is passed in as an argument
+        # so that eventually when the leftmost child is reached, the
+        # call can return both the parent to the successor and the successor
+        if root.left:
+            return self.findMin(root.left, root)
+        else:
+            return [parent, root]
 
         
         
@@ -152,7 +197,7 @@ tree.insertElement(tree.root, 7, "R")
 # print(tree.root.right.data) # 9
 # print(tree.root.left.data) # 4
 
-print(tree.search(tree.root, 4))
+print(tree.search(tree.root, 2))
 print(tree.printPreorder(tree.root, ""))
 print(*tree.printPreorderNonRecursion())
 
@@ -160,6 +205,16 @@ print(tree.printInorder(tree.root, ""))
 print(*tree.printInorderNonRecursion())
 
 print(tree.printPostorder(tree.root, ""))
+
+tree.deleteNode(tree.root, 2)
+
+
+print(tree.search(tree.root, 2))
+print(tree.printPreorder(tree.root, ""))
+print(*tree.printPreorderNonRecursion())
+
+print(tree.printInorder(tree.root, ""))
+print(*tree.printInorderNonRecursion())
 
 
 
