@@ -7,41 +7,25 @@
 # bob = int(input())
 # alice = int(input())
 # print(bobAndAlice(bob, alice))
+number = list(input())
+boob_answer = list(input())
 
-def eatingCandies():
-    num_candies = int(input())
+zeros = []
+smallest = ""
+answer = []
+i = 0
 
-    weights = list(map(int, input().split()))
-    left = 0
+while i < len(number) and number == "0":
+    answer.append(number[i])
+    i += 1
+if i < len(number):
+    answer.append(number[i])
 
-    right = num_candies - 1
+i += 1
+answer.extend(zeros)
 
-    alice_weight = weights[0]
+while i < len(number):
+    answer.append(number[i])
+    i += 1
+print("OK" if answer == boob_answer else "WRONG_ANSWER")
 
-    bob_weight = weights [num_candies - 1]
-
-    max_candies = 0
-
-    while left < right:
-
-        if alice_weight == bob_weight:
-
-            max_candies = max(max_candies, left + 1 + num_candies - right)
-
-        if alice_weight <= bob_weight: #, 
-            left += 1
-
-            alice_weight += weights [left]
-
-        elif bob_weight < alice_weight:
-
-            right -= 1 
-            bob_weight += weights [right]
-
-    print(max_candies)
-
-num_test_cases = int(input())
-
-for _ in range(num_test_cases):
-
-    eatingCandies()
