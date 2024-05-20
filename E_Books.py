@@ -6,8 +6,8 @@ sumn = 0
 m = 0
 for e in range(n):
     sumn += l[e]
-    while sumn > t and s <= 2:
+    while sumn > t and s <= e:
         sumn -= l[s]
         s += 1
-    m = max(m,e-s+1)
+    m = max(m, e-s+1)
 print(m)
