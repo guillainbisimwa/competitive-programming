@@ -1,8 +1,8 @@
 n = int(input())
  
 for _ in range(n):
-    v = int(input())
-    n = 0
+    v, n = int(input()), 0
+    # n = 0
     for _ in range(v):
         current  = input().split()
 
