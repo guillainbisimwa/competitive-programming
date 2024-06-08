@@ -29,7 +29,6 @@ def magicNumber(n):
             if int(str(n)[index:index + len(magic_str)]) == magic_num:
                 if backtracking(index + len(magic_str)):
                     return True
-
         return False
 
     if backtracking(0):
@@ -41,3 +40,6 @@ n = int(input())
 magicNumber(n)
 
 
+        #      s
+        #    / \ \
+        #    1 14 144
