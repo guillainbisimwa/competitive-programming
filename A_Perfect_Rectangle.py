@@ -1,7 +1,6 @@
 import math
 import sys
 
-
 def can_form_square_grid(n, marbles):
     total_marbles = sum(marbles)
     sqrt_total = int(math.isqrt(total_marbles))
