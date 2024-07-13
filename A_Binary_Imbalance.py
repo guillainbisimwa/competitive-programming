@@ -1,3 +1,22 @@
+
+# def chars(n):
+#     while n > 0:
+#         s = input()
+#         s = input()
+#         count = {}
+#         for char in s:
+#             if char in count:
+#                 count[char] += 1
+#             else:
+#                 count[char] = 1
+        
+#         if len(count) == 1 and s[0] == '1':
+#             print('NO')
+#         else:
+#             print('YES')
+#         n -= 1
+# n = int(input())
+# chars(n)
 import heapq
 
 def top_k(words, k):
