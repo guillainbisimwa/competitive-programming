@@ -8,14 +8,12 @@ def planet(n):
             orbit_count[orbit] += 1
         else:
             orbit_count[orbit] = 1
-    
     total_cost = 0
     for orbit in orbit_count:
         count = orbit_count[orbit]
         cost_using_first_machine = count
         cost_using_second_machine = des
-        total_cost += min(cost_using_first_machine, cost_using_second_machine)
-    
+        total_cost += min(cost_using_first_machine, cost_using_second_machine) 
     print(total_cost)
 
 n = int(input())
