@@ -1,6 +1,7 @@
 class Solution:
     def calculateMinimumHP(self, dungeon: List[List[int]]) -> int:
-        m, n = len(dungeon), len(dungeon[0])
+        m = len(dungeon)
+        n = len(dungeon[0])
     
         dp = [[float('inf')] * (n + 1) for _ in range(m + 1)]
         
