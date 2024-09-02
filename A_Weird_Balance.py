@@ -19,7 +19,7 @@ def process_test_cases():
             print("YES")
             # Print the array as a space-separated string
             print(" ".join(map(str, ar)))
-            print(" ".join(map(str, sorted(ar, reverse=True))))
+            #print(" ".join(map(str, sorted(ar, reverse=True))))
 
 
 # Call the function to process test cases
