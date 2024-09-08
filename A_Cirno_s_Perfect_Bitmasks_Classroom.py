@@ -11,10 +11,10 @@ def find_answer(m):
     else:
         return ans
 
-def process_test_cases():
+def start():
     t = int(input())
     for _ in range(t):
         m = int(input())
         print(find_answer(m))
 
-process_test_cases()
+start()
