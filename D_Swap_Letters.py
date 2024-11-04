@@ -1,13 +1,21 @@
-def swap(n, s):
-
-    max_ops = 0
-    for i in range(n - 1):
+def max_operations(n, s):
+    operations = 0
+    i = 0
+    while i < n - 1:
         if s[i] == 'A' and s[i + 1] == 'B':
-            max_ops += 1
-    return max_ops
-    
+            operations += 1
+            i += 2  # Skip to avoid overlapping
+        else:
+            i += 1
+    return operations
 
-n = int(input())
-s = input()
+# Reading input
+t = int(input().strip())
+results = []
+for _ in range(t):
+    n = int(input().strip())
+    s = input().strip()
+    results.append(max_operations(n, s))
 
-swap(n, s)
+# Output the results for each test case
+print("\n".join(map(str, results)))
